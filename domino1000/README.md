@@ -14,3 +14,6 @@ The Dockerfile in this directory creates a new Docker image klehmann/domino:10.0
 
 Starting new Docker containers with this image runs the server in listen mode for remote server setup on port 1352.
 
+Next steps
+============
+Go to directory "domino1000_scriptsupport" and extend this Docker image to run the first server setup from the command line.

@@ -1,7 +1,7 @@
-One time setup: Create Docker image for Domino 10 with scripted setup support
+Create Docker image for Domino 10 with scripted setup support
 =============================================================================
 The Dockerfile in this directory creates a new Docker image that is based on a previously
-created Docker image klehmann/domino:10.0.0 
+created Docker image klehmann/domino:10.0.0 (see directory "domino1000").
 
 We add a start script that runs the scripted Domino server setup if there is no server.id
 file yet and the required environment variables have been set (server name, ID passwords etc.).
@@ -11,7 +11,7 @@ file yet and the required environment variables have been set (server name, ID p
 
 Create a new Domino 10 server instance
 ======================================
-This section describes how to create a new Docker container for a new Domino server. 
+This section describes how to create a new Docker container for a new Domino server. Use the steps below for each new server instance.
 
 
 Create data volume for Domino data:
@@ -51,10 +51,11 @@ The command runs the scripted Domino server setup. The setup initializes the dat
 
 Extract created ID files
 ------------------------
-Next we create a new local directory "ids" and extract the created cert/server/admin ID files from the data volume.
+Next we create a new local directory "ids" and copy the created cert/server/admin ID files from the data volume.
 
     mkdir -p ids && docker run --rm -v domino10_customer_abc:/local/notesdata -v "$PWD":/local/notesdata_out busybox cp -f /local/notesdata/{cert.id,server.id,admin.id} /local/notesdata_out/ids
 
+Backup these files and use them to set up your Notes Client.
 
 Run Domino 10 server instance
 =============================
