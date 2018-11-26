@@ -17,6 +17,11 @@ The code is available under Apache 2.0 license.
 
 Copyright by [Mindoo GmbH](http://www.mindoo.com)
 
+# Todos
+* use best practices described in this article: ["IBM Domino support for running Domino on Docker"](http://www-01.ibm.com/support/docview.wss?uid=swg22013200)
+* reduce Docker image size by leveraging [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/)
+* work on additional server installations in a Domino Domain
+
 # References
 The provided Dockerfiles for Domino have been inspired by Ulrich Krause's great blog article ["Domino on Docker"](https://www.eknori.de/2017-08-20/domino-on-docker/).
 
