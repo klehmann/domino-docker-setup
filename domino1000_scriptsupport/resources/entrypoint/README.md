@@ -1,0 +1,1 @@
+Extension of the docker entrypoint for "domino1000" that starts the non-interactive Domino server setup. We copy names and credentials for certifier/server/admin from environment variables and populate a pre-existing setup.pds file.
