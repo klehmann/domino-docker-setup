@@ -1,7 +1,7 @@
 Download Domino 10 Beta App Dev Pack installation archive
 ===========================================================
 
-Domino 10 beta app dev pack installation archive is expected to be downloaded to "resources" and named "ibm_domino_V10_appdev_pack_V1.0_linux64_beta.tar".
+Domino 10 beta app dev pack installation archive is expected to be downloaded, the .tgz extracted to "resources" which should give a file named "ibm_domino_V10_appdev_pack_V1.0_linux64_beta.tar".
 
 The file is not included in this repository for licensing reasons.
 
