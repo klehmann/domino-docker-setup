@@ -2,7 +2,7 @@ FROM centos
 
 ENV DOM_SCR=resources/initscripts
 ENV DOM_CONF=resources/serverconfig/domino1001_response.dat
-ENV DOM_ENTRYPOINT_FILE=resources/entrypoint/docker-entrypoint.sh
+ENV DOM_ENTRYPOINT_FILE=resources/entrypoint/domino_docker_entrypoint.sh
 ENV DOM_DOMINO10INSTALLER=resources/domino1001installer/DOM_SVR_V10.0.1_64_BIT_Lnx.tar
 
 # environment variable required by Domino setup
@@ -35,8 +35,8 @@ COPY ${DOM_DOMINO10INSTALLER} /tmp/sw-repo/
 COPY ${DOM_CONF} /tmp/sw-repo/serverconfig/
 
 # copy entrypoint file to start the initial server setup or the server process
-COPY ${DOM_ENTRYPOINT_FILE} /docker-entrypoint.sh
-RUN chmod 775 /docker-entrypoint.sh
+COPY ${DOM_ENTRYPOINT_FILE} /domino_docker_entrypoint.sh
+RUN chmod 775 /domino_docker_entrypoint.sh
 
 # download domino installer and do a silent installation
 RUN cd /tmp/sw-repo/ && \
@@ -55,7 +55,7 @@ RUN chmod u+x /etc/init.d/rc_domino && \
 COPY ${DOM_SCR}/rc_domino_script /opt/ibm/domino/
 RUN chmod u+x /opt/ibm/domino/rc_domino_script && \
     chown notes.notes /opt/ibm/domino/rc_domino_script
-COPY ${DOM_SCR}/rc_domino_config_notes /etc/sysconfig/
+COPY ${DOM_SCR}/rc_domino_config /etc/sysconfig/
 
 USER notes
 WORKDIR /local/notesdata
@@ -66,4 +66,4 @@ ENV PATH=$PATH:/opt/ibm/domino/
 
 EXPOSE 25 80 443 1352
 
-CMD ["/docker-entrypoint.sh"]
+CMD ["/domino_docker_entrypoint.sh"]

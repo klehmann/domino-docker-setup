@@ -12,3 +12,5 @@ RUN cd ${NUI_NOTESDIR} && \
 	ls -la libnotes.so && \
 	tar -xf ${NUI_NOTESDIR}/proton-addin-0.2.2.tgz && \
 	/bin/bash -c "sh -v ./setup_proton.sh"
+
+EXPOSE 25 80 443 1352 8085
