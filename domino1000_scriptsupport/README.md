@@ -60,8 +60,34 @@ Backup these files and use them to set up your Notes Client.
 Run Domino 10 server instance
 =============================
 
-Run Docker container with mounted data and published network ports in interactive mode:
+Run Docker container with mounted data and published network ports and assign a name, e.g. "domino10_abc":
 
-    docker run --rm --interactive --tty -p 1352:1352 -p 80:80 -p 443:443 -p 25:25  -v domino10_customer_abc:/local/notesdata klehmann/domino_scriptsupport:10.0.0
+    docker run -p 1352:1352 -p 80:80 -p 443:443 -p 25:25 --name domino10_abc -v domino10_customer_abc:/local/notesdata klehmann/domino_scriptsupport:10.0.0
 
+Access Domino server console in running instance
+------------------------------------------------
+
+Start a bash on the new running container:
+
+    docker exec domino10_abc bash
+
+Use the live console option of Daniel Nashed's start script:
+
+    /etc/init.d/rc_domino live
+
+Type "close" to leave the live console and "exit" to exit bash.
+
+Stop Domino 10 docker container
+===============================
+
+To stop the running container, it is important to set the timeout value, because the default of 10 seconds between stopping and killing the container is too short for Domino:
+
+    docker stop --time=60 domino10_abc
+
+Start Domino 10 docker container
+================================
+
+Use this command to start the now named Domino server container:
+
+    docker start domino10_abc
 

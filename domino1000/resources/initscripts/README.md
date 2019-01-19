@@ -1,1 +1,1 @@
-Domino server startup scripts, copied to /etc/sysconfig/
+Daniel Nashed's Domino server startup scripts
