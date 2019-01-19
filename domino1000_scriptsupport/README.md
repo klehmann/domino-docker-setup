@@ -69,7 +69,7 @@ Access Domino server console in running instance
 
 Start a bash on the new running container:
 
-    docker exec domino10_abc bash
+    docker exec -it domino10_abc bash
 
 Use the live console option of Daniel Nashed's start script:
 
