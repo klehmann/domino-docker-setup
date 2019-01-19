@@ -1,7 +1,7 @@
 Download Domino 10 installation archive
 ===========================================================
 
-Domino 10 installation archive is expected to be downloaded to "resources/domino10installer" and named "DOMINO_SERVER_V10.0_64_BIT_LINUX_.tar".
+Domino 10 installation archive is expected to be downloaded to "resources/domino_installer" and named "DOMINO_SERVER_V10.0_64_BIT_LINUX_.tar".
 
 The file is not included in this repository for licensing reasons.
 
