@@ -12,4 +12,4 @@ RUN cd ${NUI_NOTESDIR} && \
 	tar -xf ${NUI_NOTESDIR}/proton-addin-0.1.0-5497660.tgz && \
 	/bin/bash -c "sh -v ./setup_proton.sh"
 
-EXPOSE 25 80 443 1352 8085
+EXPOSE 25 80 443 1352 3002
